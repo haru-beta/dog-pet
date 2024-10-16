@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Pet</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Cartoonish font */
+            background: linear-gradient(135deg, 
+                #ffe5d4 40%, /* Light pink-orange */
+                #f2d5c9 40%, /* Beige */
+                #f2d5c9 60%, /* Beige */
+                #add8e6 60%, /* Light blue */
+                #add8e6 80%, /* Light blue */
+                #d2b48c 80%, /* Brown */
+                #d2b48c 100% /* Brown */
+            );
+            background-color: #ffe5d4; /* Fallback color */
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff6f61; /* Light orange-pink text */
+            font-size: 2em; /* Responsive font size */
+        }
+
+        .dog-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: center; /* Center items */
+            margin-top: 30px;
+        }
+
+        .dog {
+            text-align: center;
+            cursor: pointer; /* Changes cursor to pointer on hover */
+            margin: 10px; /* Space around each dog */
+            flex: 1 1 200px; /* Allow flexibility */
+        }
+
+        .dog img {
+            border-radius: 15px;
+            width: 100%; /* Full width */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 200px; /* Max width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .dog img:hover {
+            transform: scale(1.1);
+        }
+
+        .dog h3 {
+            margin-top: 10px;
+            color: #ff9671; /* Soft pink-orange color */
+        }
+
+        .message {
+            display: none; /* Hidden by default */
+            margin-top: 40px;
+            font-size: 24px;
+            color: #ff6f61; /* Light orange-pink color */
+            font-weight: bold;
+            animation: fadeIn 1s; /* Animation for message */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .message {
+                font-size: 20px; /* Adjust font size for smaller screens */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Smaller header on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Which Cute Little Dog Would You Want as a Pet?</h1>
+
+    <div class="dog-container">
+        <div class="dog" onclick="showMessage('Brownie')">
+            <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGRvZ3xlbnwwfHx8fDE2NzYyMzY4MzY&ixlib=rb-1.2.1&q=80&w=400" alt="Brownie the dog">
+            <h3>Brownie</h3>
+        </div>
+        <div class="dog" onclick="showMessage('Caramel')">
+            <img src="https://images.pexels.com/photos/9942475/pexels-photo-9942475.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Caramel the dog">
+            <h3>Caramel</h3>
+        </div>
+        <div class="dog" onclick="showMessage('Snow')">
+            <img src="https://images.pexels.com/photos/2523934/pexels-photo-2523934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Snow the dog">
+            <h3>Snow</h3>
+        </div>
+    </div>
+
+    <div class="message" id="congratsMessage">
+        Your pet will be delivered in minutes! 🎉
+    </div>
+
+    <script>
+        function showMessage(dogName) {
+            const messageDiv = document.getElementById('congratsMessage');
+            messageDiv.style.display = 'block'; // Show the message
+            messageDiv.innerHTML = `Congratulations! ${dogName} will be delivered in minutes! 🎉`;
+        }
+    </script>
+
+</body>
+</html>
+
